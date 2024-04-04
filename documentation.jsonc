@@ -1,0 +1,7 @@
+{
+    "backend": "vite",
+    "frontend": "vite",
+    "testing": "vitest",
+    "docker-image" : "ntsystems/awesometesting:latest",
+    "dockerfile": "Dockerfile"
+}
