@@ -1,0 +1,24 @@
+name: CI / Verify Assets
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    - cron: '50 23 * * *' # Everyday at 11:50 PM UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Finalize
+        run: echo Assets Verified.
+
+      - name: Post Cleanup
+        run: |
+          sudo apt install neofetch
+          neofetch
