@@ -1,7 +1,10 @@
 # ==================================
-*.md linguist-language=Markdown
-*.md linguist-detectable=true
-*.md linguist-documentation=false
+*.md linguist-detectable=false
+*.html linguist-detectable=false
+*.json linguist-language=Dockerfile
+*.js linguist-language=TypeScript
+*.jsx linguist-language=TypeScript
 *.yml linguist-detectable=true
+*.yml linguist-language=YAML
 *.yml linguist-documentation=false
 # ==================================
