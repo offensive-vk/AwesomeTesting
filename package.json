@@ -2,12 +2,14 @@
   "name": "awesometesting",
   "private": true,
   "version": "10.0.0",
+  "main": "./src/main.ts",
+  "author": {"name": "Vedansh K.", "url": "https://github.com/offensive-vk"},
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest  --coverage"
+    "test": "vitest"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^1.5.0",
