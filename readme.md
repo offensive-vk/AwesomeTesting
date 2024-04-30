@@ -1,3 +1,7 @@
+<div align="center">
+<a href="https://vitest.dev/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/vitest/vitest-original.svg" alt="vitest" width="200" height="150"/> </a>
+</div>
+
 # AwesomeTesting
 Everything Relating to Application Testing , Unit Testing and Build Testing using Next Generation Frontend Tooling Framework - [Vitest](https://vitest.dev). 
 
