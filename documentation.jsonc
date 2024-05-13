@@ -3,5 +3,6 @@
     "frontend": "vite",
     "testing": "vitest",
     "docker-image" : "ntsystems/awesometesting:latest",
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "composeFile": "./compose.yaml"
 }
