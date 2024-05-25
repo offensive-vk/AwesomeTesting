@@ -1,5 +1,5 @@
 import sum from '../lib/sum';
-import { it, describe, expect, beforeEach, afterEach } from "vitest";
+import { it, describe, expect } from "vitest";
 
 describe('sum function testing', () => {
     it('should return 0 when no numbers are passed', () => {
@@ -28,5 +28,12 @@ describe('sum function testing', () => {
         expect(sum(0.1, 0.2)).toBeCloseTo(0.3);
         expect(sum(1.5, 2.5, 3.5)).toBeCloseTo(7.5);
         expect(sum(-1.1, -2.2, -3.3)).toBeCloseTo(-6.6);
+    });
+    // Asynchronous tests (though our function is synchronous, this is to show how to handle async)
+    it('should handle async addition', async () => {
+        const result = await new Promise<number>((resolve) => {
+            setTimeout(() => resolve(sum(25, 25)), 100);
+        });
+        expect(result).toBe(50);
     });
 });
