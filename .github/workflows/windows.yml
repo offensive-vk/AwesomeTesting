@@ -14,7 +14,7 @@ jobs:
       matrix:
         node-version: [16.x, 18.x, 20.x, 21.x, 22.x]
     
-    name: Testing Node on Version ${{ matrix.node-version }} on Windows Container. 
+    name: Running Tests on Node.js Version ${{ matrix.node-version }} 
     steps:
     - uses: actions/checkout@v3
 
