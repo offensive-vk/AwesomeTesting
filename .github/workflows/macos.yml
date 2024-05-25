@@ -1,4 +1,4 @@
-name: CI / Node.js - macOS
+name: CI / Build & Test - macOS
 
 on:
   push:

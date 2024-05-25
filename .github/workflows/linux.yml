@@ -1,4 +1,4 @@
-name: CI / Node.js - Linux
+name: CI / Build & Test - Linux
 
 on:
   push:
