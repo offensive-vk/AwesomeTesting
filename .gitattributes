@@ -1,5 +1,6 @@
 # ==================================
 *.md linguist-detectable=false
+Dockerfile linguist-detectable=false
 *.html linguist-detectable=false
 *.json linguist-language=Dockerfile
 *.js linguist-language=TypeScript
