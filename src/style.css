@@ -48,19 +48,26 @@ h1 {
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
 
+.logo.vitejs:hover {
+  filter: drop-shadow(0 0 2em #3e33fcaa);
+}
+.logo.typescript:hover {
+  filter: drop-shadow(0 0 2em #2974c5aa);
+}
+.logo.vitest:hover {
+  filter: drop-shadow(0 0 2em #94e736aa);
+}
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
+.author {
+  transition: all 0.2s ease-in-out;
   color: #888;
+}
+.author:hover {
+  color: white;
 }
 
 button {
