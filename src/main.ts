@@ -3,6 +3,7 @@ import typescriptLogo from './assets/typescript.svg';
 import viteLogo from './assets/vite.svg';
 import vitestLogo from './assets/vitest.svg';
 import { setupCounter } from './counter.ts'
+import './index.ts';
 
 const typescript: string = `https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/typescript/typescript-plain.svg`;
 const vitest: string = `https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/vitest/vitest-original.svg`;
