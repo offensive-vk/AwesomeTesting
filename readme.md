@@ -1,13 +1,14 @@
 <div align="center">
-<a href="https://vitest.dev/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/vitest/vitest-original.svg" alt="vitest" width="200" height="150"/> </a>
+<a href="https://vitest.dev/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/vitest/vitest-original.svg" alt="vitest" width="200" height="200"/> </a>
 </div>
 
 # AwesomeTesting
+
 Everything Relating to Application Testing , Unit Testing and Build Testing using Next Generation Frontend Tooling Framework - [Vitest](https://vitest.dev). 
 
 ## What is Testing ?
 
-Testing, in the context of software development, refers to the process of evaluating a software application or system to ensure that it meets specified requirements and functions correctly. The primary goal of testing is to identify defects or bugs within the software so that they can be fixed before the product is released to end-users.
+Testing refers to the process of evaluating a software application or system to ensure that it meets specified requirements and functions correctly. The primary goal of testing is to identify defects or bugs within the software so that they can be fixed before the product is released to end-users.
 
 Testing can involve various techniques, methodologies, and tools, depending on the nature of the software being developed. Some common types of testing include:
 
@@ -24,8 +25,6 @@ Testing can involve various techniques, methodologies, and tools, depending on t
 6. **Performance Testing:** Performance testing is conducted to assess how well the software performs under different conditions, such as varying levels of load or stress.
 
 7. **Security Testing:** Security testing involves assessing the software for potential vulnerabilities and weaknesses that could be exploited by attackers.
-
-These are just a few examples of the types of testing that may be conducted during the software development process. Testing is an essential part of ensuring the quality, reliability, and security of software products before they are deployed to users.
 
 ## Quick Links and Navigation 🧭
 

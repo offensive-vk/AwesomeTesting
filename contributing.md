@@ -12,7 +12,6 @@ For Information about Concepts and Languages that are available to contribute, p
 - Create a Pull Request [here](https://github.com/AwesomeTesting/pulls).
 - Create an Issue [here](https://github.com/offensive-vk/AwesomeTesting/issues) which is optional.
 - Your Pull Request will be reviewed and merged / closed accordingly.
-- You have to assign me as reviewer of your pull request.
 - Developer & Author : [offensive-vk](https://github.com/offensive-vk/)
 - Thank you.
 
