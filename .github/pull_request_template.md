@@ -17,8 +17,6 @@ What kind of change does this PR introduce?
 * [ ] Self
 * [ ] Others (Mention)
 
-`[@username](account web address)`
-
 ## What's new?
 -
 

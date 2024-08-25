@@ -1,5 +1,5 @@
 # *** DO NOT MODIFY THIS FILE ***
-# Sitemap For Other Backend Stuff.
+# Sitemap For Backend Stuff.
 docs: ./documentation.jsonc
 source: "https://github.com/offensive-vk/AwesomeTesting/"
 author: offensive-vk <https://github.com/offensive-vk/>
