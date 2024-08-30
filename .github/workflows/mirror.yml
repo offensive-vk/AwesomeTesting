@@ -34,7 +34,7 @@ jobs:
     - name: Create Issue using Bot
       uses: dacbd/create-issue-action@main
       with:
-        token: ${{ secrets.BOT_GH_TOKEN }}
+        token: ${{ secrets.BOT_TOKEN }}
         title: |
             [${{ github.workflow }}] during [${{ github.event_name }}]
         assignees: npm-run-test
