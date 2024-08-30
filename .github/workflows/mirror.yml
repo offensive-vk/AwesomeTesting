@@ -1,0 +1,79 @@
+name: CI / Gitlab - Mirror Sync
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  push: 
+    branches: ["*"]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: Gitlab Repo Sync
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Cache Git Repo
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.git
+          .git
+        key: ${{ runner.os }}-git-${{ github.sha }}
+        
+    - uses: wangchucheng/git-repo-sync@v0.1.0
+      with:
+        target-url: ${{ secrets.TARGET_URL }}
+        target-username: ${{ secrets.TARGET_USERNAME }}
+        target-token: ${{ secrets.TARGET_TOKEN }}
+
+    - name: Create Issue on Success
+      if: ${{ success() }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { data: issue } = await github.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: 'GitLab Remote Sync Successful',
+            body: `The repository has been successfully synced with GitLab on ${new Date().toISOString()}.`,
+            labels: ['sync-success']
+          });
+
+  close-issues:
+    runs-on: ubuntu-latest
+    name: Close Issues Older Than 24 Hours
+    steps:
+    - name: Close Old Issues
+      env:
+        GITHUB_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const issues = await github.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: 'sync-success',
+            state: 'open'
+          });
+
+          const now = new Date();
+          issues.data.forEach(async issue => {
+            const createdAt = new Date(issue.created_at);
+            const hoursSinceCreated = (now - createdAt) / 1000 / 60 / 60;
+
+            if (hoursSinceCreated >= 24) {
+              await github.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed'
+              });
+            }
+          });
