@@ -1,0 +1,52 @@
+name: CI / Gitlab - Mirror Sync
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  push: 
+    branches: ["*"]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: Gitlab Repo Sync
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Cache Git Repo
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.git
+          .git
+        key: ${{ runner.os }}-git-${{ github.sha }}
+        
+    - uses: wangchucheng/git-repo-sync@v0.1.0
+      with:
+        target-url: ${{ secrets.TARGET_URL }}
+        target-username: ${{ secrets.TARGET_USERNAME }}
+        target-token: ${{ secrets.TARGET_TOKEN }}
+  
+    - name: Create Issue using Bot
+      uses: dacbd/create-issue-action@main
+      with:
+        token: ${{ github.token }}
+        title: |
+            [${{ github.workflow }}] during [${{ github.event_name }}]
+        assignees: npm-run-test
+        labels: sync-success
+        body: |
+            ## Gitlab Repo Sync Report:
+            
+            > [!IMPORTANT]
+            > Details of run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    
+            - Author: @npm-run-test
+            - Branch: `${{ github.ref }}`
+            - Commit: ${{ github.sha }}
+            - Workflow Path: `${{ github.workflow_ref }}`
+  
