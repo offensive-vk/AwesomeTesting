@@ -30,23 +30,7 @@ jobs:
         target-url: ${{ secrets.TARGET_URL }}
         target-username: ${{ secrets.TARGET_USERNAME }}
         target-token: ${{ secrets.TARGET_TOKEN }}
-
-    - name: Create Issue on Success
-      if: ${{ success() }}
-      env:
-        TOKEN: ${{ secrets.BOT_GH_TOKEN }}
-      uses: actions/github-script@v7
-      with:
-        github-token: ${{ env.TOKEN }}
-        script: |
-          const issue = await github.rest.issues.create({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            title: 'GitLab Remote Sync Successful',
-            body: `The repository has been successfully synced with GitLab on ${new Date().toISOString()}.`,
-            labels: ['sync-success']
-          });
-          
+  
     - name: Create Issue using Action
       env:
         BOT_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
