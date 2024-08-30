@@ -38,6 +38,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
+          console.log(`Sync Success!`);
           const { data: issue } = await github.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
@@ -45,3 +46,25 @@ jobs:
             body: `The repository has been successfully synced with GitLab on ${new Date().toISOString()}.`,
             labels: ['sync-success']
           });
+          
+    - name: Create Issue
+      env:
+        GITHUB_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
+      uses: dacbd/create-issue-action@main
+      with:
+        token: ${{ GITHUB.TOKEN }}
+        title: |
+            [${{ github.workflow }}] failed during [${{ github.event_name }}]
+        assignees: npm-run-test
+        labels: sync-success
+        body: |
+            ## Gitlab Repo Sync Report:
+            
+            > [!IMPORTANT]
+            > Details of run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    
+            - Author: @npm-run-test
+            - Branch: `${{ github.ref }}`
+            - Commit: ${{ github.sha }}
+            - Workflow Path: `${{ github.workflow_ref }}`
+  
