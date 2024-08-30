@@ -36,7 +36,7 @@ jobs:
         BOT_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
       uses: dacbd/create-issue-action@main
       with:
-        token: ${{ env.BOT_TOKEN }}
+        token: ${{ secrets.BOT_GH_TOKEN }}
         title: |
             [${{ github.workflow }}] failed during [${{ github.event_name }}]
         assignees: npm-run-test
