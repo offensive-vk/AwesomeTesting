@@ -33,10 +33,10 @@ jobs:
   
     - name: Create Issue using Action
       env:
-        BOT_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
       uses: dacbd/create-issue-action@main
       with:
-        token: ${{ secrets.BOT_GH_TOKEN }}
+        token: ${{ GITHUB_TOKEN }}
         title: |
             [${{ github.workflow }}] failed during [${{ github.event_name }}]
         assignees: npm-run-test
