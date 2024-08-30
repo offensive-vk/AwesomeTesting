@@ -37,6 +37,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
       uses: actions/github-script@v7
       with:
+        token: ${{ secrets.BOT_GH_TOKEN }}
         script: |
           const issue = await github.rest.issues.create({
             owner: context.repo.owner,
@@ -46,12 +47,12 @@ jobs:
             labels: ['sync-success']
           });
           
-    - name: Create Issue
+    - name: Create Issue using Action
       env:
         GITHUB_TOKEN: ${{ secrets.BOT_GH_TOKEN }}
       uses: dacbd/create-issue-action@main
       with:
-        token: ${{ GITHUB.TOKEN }}
+        token: ${{ env.GITHUB.TOKEN }}
         title: |
             [${{ github.workflow }}] failed during [${{ github.event_name }}]
         assignees: npm-run-test
