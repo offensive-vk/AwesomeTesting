@@ -1,4 +1,4 @@
-name: CI / Gitlab - Mirror Sync
+name: CI / Mirror
 
 on:
   schedule:
@@ -10,8 +10,8 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    name: Gitlab Repo Sync
+    timeout-minutes: 5
+    name: Repo Sync
     steps:
     - uses: actions/checkout@v4
       with:
