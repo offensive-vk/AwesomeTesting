@@ -41,8 +41,7 @@ jobs:
           flavor: |
             latest=true
           labels: |
-            org.opencontainers.image.title=AwesomeScripts
-            org.opencontainers.image.description=Awesome Scripts for Everyone.
+            org.opencontainers.image.title=AwesomeTesting
             org.opencontainers.image.vendor=Vedansh
             
       - name: Install cosign
